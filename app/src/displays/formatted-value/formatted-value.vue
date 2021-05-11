@@ -9,7 +9,7 @@
 <script lang="ts">
 import { defineComponent, computed } from '@vue/composition-api';
 import formatTitle from '@directus/format-title';
-import { decode } from 'html-entities';
+import { Html4Entities } from 'html-entities';
 
 export default defineComponent({
 	props: {
@@ -44,7 +44,7 @@ export default defineComponent({
 			value = value.replace(/(<([^>]+)>)/gi, '');
 
 			// Decode any HTML encoded characters (like &copy;)
-			value = decode(value);
+			value = Html4Entities.decode(value);
 
 			if (props.formatTitle) {
 				value = formatTitle(value);

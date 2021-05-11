@@ -58,7 +58,7 @@ export default async function runSeed(database: Knex): Promise<void> {
 				}
 
 				if (columnInfo.primary) {
-					column.primary();
+					column.notNullable().primary();
 				}
 
 				if (columnInfo.nullable !== undefined && columnInfo.nullable === false) {
